@@ -256,11 +256,14 @@ void sigalrm_handler(int sig_get){
          p1putstr(1, "   \n");
         p1putstr(1, ">>>>>>>>>>>>>>>>>>>>>>>>NEW PAIR<<<<<<<<<<<<<<<<<<<<   \n");
          p1putstr(1, "   \n");
-        int n;
-        for(n=0; n<number_in_exe_list;n++){
+        
+        if(number_in_exe_list != 0){
+            int n;
+            for(n = 0; n < number_in_exe_list; n++){
             
-            printInfo(executing_now_list[n]);
+                printInfo(executing_now_list[n]);
             
+            }
         }
         
         
