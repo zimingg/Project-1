@@ -6,8 +6,8 @@
 #include <sys/time.h>
 
 
-#define STRING_LENGTH 300
-#define COMMAND_LIST_LENGTH 100
+#define STRING_LENGTH 1000
+#define COMMAND_LIST_LENGTH 300
 
 int i;
 int command_length;
