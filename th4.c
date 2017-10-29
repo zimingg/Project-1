@@ -104,10 +104,13 @@ void printInfo(pid_t pid){
     
     //p1putstr(1,path);
     p1putstr(1,"**************PROCESS******************");
-    p1putstr(1,"\n");
-    p1putstr(1,"Process's pid: ");
-    p1putstr(1,str_pid);
-    p1putstr(1,"\n");
+    if (pid != -1){
+        p1putstr(1,"\n");
+        p1putstr(1,"Process's pid: ");
+        p1putstr(1,str_pid);
+        p1putstr(1,"\n");
+    }
+   
     
     char path_cmdline[PRINTINFO_SIZE];
     
