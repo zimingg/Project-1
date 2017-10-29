@@ -259,7 +259,7 @@ void sigalrm_handler(int sig_get){
         
         if(number_in_exe_list != 0){
             int n;
-            for(n = 0; n < number_in_exe_list; n++){
+            for(n = 0; n < np; n++){
                 if(executing_now_list[n] > 0){
                     printInfo(executing_now_list[n]);
                 }
