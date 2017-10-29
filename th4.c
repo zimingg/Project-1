@@ -5,9 +5,12 @@
 #include <sys/wait.h>
 #include <unistd.h>
 #include <sys/time.h>
+#include <fcntl.h>
 
 
 
+
+#define PRINTINFO_SIZE 5024
 #define STRING_LENGTH 1000
 #define COMMAND_LIST_LENGTH 300
 
