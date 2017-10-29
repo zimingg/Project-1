@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <sys/wait.h>
 #include <unistd.h>
+#include <sys/time.h>
 
 
 #define STRING_LENGTH 300
