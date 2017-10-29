@@ -412,7 +412,7 @@ void time_print(int a, char* b,int copy, int prosors){
     for(i = 0; i< counter; i++){
         m = m/10;
     }
-    printf(" %d  %d %d\n",y, m, counter);
+    //printf(" %d  %d %d\n",y, m, counter);
     p1putstr(1,"The elapsed time to execute ");
     p1putint(1, copy);
     p1putstr(1," copies of \"");
@@ -538,7 +538,7 @@ int main(int argc, const char * argv[]) {
     
     unsigned long elapsed = (t2.tv_sec-t1.tv_sec)*1000000 + t2.tv_usec-t1.tv_usec; //It counts microseconds.
     
-    p1putint(1, elapsed);
+    //p1putint(1, elapsed);
     time_print(elapsed, input->command, input->nprocesses, input->nprocessors);
    
     
