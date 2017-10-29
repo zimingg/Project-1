@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/wait.h>
- #include <unistd.h>
+#include <unistd.h>
 
 
 #define STRING_LENGTH 300
