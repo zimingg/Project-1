@@ -1,6 +1,6 @@
 #include "p1fxns.h"
 #include "taskqueue.h"
-#include <stdio.h>
+//#include <stdio.h>
 #include <stdlib.h>
 #include <sys/wait.h>
 #include <unistd.h>
@@ -394,6 +394,49 @@ void send_signal(int np, int signal, Process* p_list){
 }
 
 
+void time_print(int a, char* b,int copy, int prosors){
+    int fake_a = a;
+    int counter = 0;
+    if(fake_a<100000){
+        counter++;
+        fake_a= fake_a*10;
+    }
+    int y = a/1000000;
+    int yu = a % 1000000;
+    int m = yu;
+    while(m > 999){
+        m = m/10;
+    }
+    for(i = 0; i< counter; i++){
+        m = m/10;
+    }
+    //printf(" %d  %d %d\n",y, m, counter);
+    p1putstr(1,"The elapsed time to execute ");
+    p1putint(1, copy);
+    p1putstr(1," copies of \"");
+    p1putstr(1,b);
+    p1putstr(1,"\" on ");
+    p1putint(1, prosors);
+    p1putstr(1," processors is ");
+    char* num = (char*)malloc(sizeof(char)*100);
+    char* pack = (char*)malloc(sizeof(char)*100);
+    p1itoa(y,num);
+    p1strpack(num, -7, ' ', pack);
+    p1putstr(1,pack);
+    p1putstr(1,".");
+    p1itoa(m,num);
+    p1strpack(num, -3, '0', pack);
+    p1putstr(1,pack);
+    p1putstr(1,"sec. \n");
+    free(num);
+    free(pack);
+    num = NULL;
+    pack = NULL;
+    
+}
+
+
+
 int main(int argc, const char * argv[]) {
     
     
@@ -443,7 +486,11 @@ int main(int argc, const char * argv[]) {
         p_list = NULL;
         return 0;
     }
-    printf("init tq size: %d \n", tq->size);
+    //printf("init tq size: %d \n", tq->size);
+    p1putstr(1, "init tq size:  ");
+    p1putint(1,tq->size);
+    p1putstr(1, "\n");
+    
     
     executing_now_list = (int*)malloc((input->nprocesses)*sizeof(int));
     for(i = 0; i < input->nprocesses; i++){
@@ -501,9 +548,7 @@ int main(int argc, const char * argv[]) {
     gettimeofday(&t2, 0);
     
     unsigned long elapsed = (t2.tv_sec-t1.tv_sec)*1000000 + t2.tv_usec-t1.tv_usec; //It counts microseconds.
-    printf("!!: %lu \n",elapsed);
-    
-    
+    time_print(elapsed, input->command, input->nprocesses, input->nprocessors);
     
     
     //free part
