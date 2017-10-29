@@ -11,8 +11,8 @@
 
 
 
-#define STRING_LENGTH 300
-#define COMMAND_LIST_LENGTH 100
+#define STRING_LENGTH 1000
+#define COMMAND_LIST_LENGTH 300
 #define PRINTINFO_SIZE 5024
 typedef struct task_queue {
     int size;
@@ -88,7 +88,7 @@ InputInfo* parseInputData(int argc, const char * argv[]){
         }
     }
     if (input->quantum == 0 || input->nprocesses == 0 || input->nprocessors == 0){
-        p1perror(1, "No value! Fail!\n");
+        p1perror(1, "No input value! Fail!\n");
         return NULL;
     }
     return input;

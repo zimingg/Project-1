@@ -92,7 +92,7 @@ InputInfo* parseInputData(int argc, const char * argv[]){
     
     
     if (input->quantum == 0 || input->nprocesses == 0 || input->nprocessors == 0){
-        p1perror(1, "No value! Fail!\n");
+        p1perror(1, "No input value! Fail!\n");
         return NULL;
     }
     
