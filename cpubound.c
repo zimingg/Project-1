@@ -23,7 +23,7 @@ int main(int argc, char **argv) {
         }
     }
     for (j = 0; j < minutes; j++) {
-        for (i = 0; i < 30000000000; i++) {
+        for (i = 0; i < 3000000000; i++) {
             ;
         }
     }
