@@ -365,7 +365,7 @@ void fork_and_create_processes(Process * p_list, int np, char ** words){
             }
             //printf("childs wake up: id is %d \n", getpid());
             if(execvp(*words, words)<0){
-                p1putstr(1, "execvp fail");
+                p1perror(1, "execvp fail\n");
             }
             exit(1);
         }
@@ -441,17 +441,17 @@ int main(int argc, const char * argv[]) {
     
     
     if(signal(SIGUSR1, signal_handler) == SIG_ERR){
-        p1putstr(1, "signal did not handled!!");
+        p1perror(1, "signal did not handled!!\n");
         return 0;
     }
     
     if(signal(SIGALRM, sigalrm_handler) == SIG_ERR){
-        p1putstr(1, "signal did not handled!!");
+        p1perror(1, "signal did not handled!!\n");
         return 0;
     }
     
     if(signal(SIGCHLD, sigchld_handler) == SIG_ERR){
-        p1putstr(1, "signal did not handled!!");
+        p1perror(1, "signal did not handled!!\n");
         return 0;
     }
     

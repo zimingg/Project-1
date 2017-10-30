@@ -193,7 +193,10 @@ void fork_and_create_processes(Process * p_list, int np, char ** words){
         }
         else{
             //child
-            execvp(*words, words);
+            if(execvp(*words, words)<0){
+                p1perror(1, "execvp fail\n");
+            }
+
             exit(1);
         }
         

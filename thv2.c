@@ -205,7 +205,10 @@ void fork_and_create_processes(Process * p_list, int np, char ** words){
             while(!wakeup_sig_got){
                 sleep(1);
             }
-            execvp(*words, words);
+            if(execvp(*words, words)<0){
+                p1perror(1, "execvp fail\n");
+            }
+
             exit(1);
         }
         
@@ -281,7 +284,7 @@ int main(int argc, const char * argv[]) {
     
     
     if(signal(SIGUSR1, signal_handler) == SIG_ERR){
-        p1putstr(1, "signal did not handled!!");
+        p1perror(1, "signal did not handled!!\n");
         return 0;
     }
     
