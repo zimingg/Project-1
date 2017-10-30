@@ -1,0 +1,50 @@
+Name: Ziming Guo
+DuckID: zimingg
+StudentID: 951432958
+
+CIS415 project 1 report
+
+
+Files: thv1, thv2, thv3, thv4
+Helper files: p1fxns.c p1fxns.h taskqueue.c taskqueue.h  
+Test memory leak with cpucound.c 
+
+
+For thv1:
+
+	 * successfully compile.
+	 * compiles with no warnings.
+	 * works correctly
+	 * valgrind reports no memory errors
+
+For thv2:
+
+	 * successfully compile.
+	 * compiles with no warnings.
+	 * works correctly
+	 * valgrind reports no memory errors
+
+For thv3:
+
+	 * successfully compile.
+	 * compiles with no warnings.
+	 * works correctly
+	 * valgrind reports no memory errors
+
+For thv4:
+
+	 * successfully compile.
+	 * compiles with no warnings.
+	 * works correctly
+	 * valgrind reports no memory errors
+
+
+My solution:
+
+	For thv1, thv2: I used fork to create child process and use execvp to do task. And send them signals to stop and cont them.
+
+	For thv3:
+
+	I mainly use three parts to achieve the round robin. First, I create a taskqueue which will add tasks from end and delete tasks from top; Second, in my sigalrm handler, if there are tasks are executing, stop them and add them to the taskqueue; Then pick number of processors tasks from task queue to execute and delete them from taskqueue. ; Third, when teh sigchild id treagered, if the child procee is finished, delete it from executing list. So it works.
+
+	For thv4: Get details about each process which is executing now from /proc/ and then print them out.
