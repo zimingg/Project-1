@@ -130,9 +130,9 @@ void printInfo(pid_t pid){
         p1getline(fd, inbuffer, 100);
         p1putstr(1,inbuffer);
 
-        close(fd);
+        
     }
-    
+    close(fd);
     fd = open(path_status, O_RDONLY);
     
     if(fd > 0){
@@ -147,9 +147,9 @@ void printInfo(pid_t pid){
             if (i == 12){p1putstr(1,inbuffer);  }
             if (i == 13){  p1putstr(1,inbuffer); }
         }
-        close(fd);
+        
     }
-
+    close(fd);
     
     char path_io[PRINTINFO_SIZE];
     
